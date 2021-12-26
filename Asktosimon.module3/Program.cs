@@ -9,6 +9,7 @@ class MainClass
 		myName = "JaneAndJane";
 
 		Console.WriteLine(myName);
+		Console.WriteLine('\x23');
 
 		Console.ReadKey();
 	}

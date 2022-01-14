@@ -1,42 +1,21 @@
-﻿using System;
+﻿const string DEFAULT_NAME = "No name";
 
-class MainClass
+(string name, string[] dishes) Person = (DEFAULT_NAME, new string[5]);
+
+Console.WriteLine("What is your name?");
+
+var name = Console.ReadLine();
+
+Person.name = name ?? DEFAULT_NAME;
+
+Console.WriteLine("What are your most liked dishes? Could call 5 dishes?");
+
+foreach(var i in Enumerable.Range(0, 5))
 {
-	public static void Main(string[] args)
-	{
-		Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+    var dish = Console.ReadLine();
 
-		var color = Console.ReadLine();
-
-		switch (color)
-		{
-			case "red":
-				Console.BackgroundColor = ConsoleColor.Red;
-				Console.ForegroundColor = ConsoleColor.Black;
-
-				Console.WriteLine("Your color is red!");
-				break;
-
-			case "green":
-				Console.BackgroundColor = ConsoleColor.Green;
-				Console.ForegroundColor = ConsoleColor.Black;
-
-				Console.WriteLine("c");
-				break;
-
-			case "cyan":
-				Console.BackgroundColor = ConsoleColor.Cyan;
-				Console.ForegroundColor = ConsoleColor.Black;
-
-				Console.WriteLine("Your color is cyan");
-				break;
-
-			default:
-				Console.BackgroundColor = ConsoleColor.Yellow;
-				Console.ForegroundColor = ConsoleColor.Red;
-
-				Console.WriteLine("Your color is yellow!");
-				break;
-		}
-	}
+    Person.dishes[i] = dish ?? "";
 }
+
+Console.WriteLine($"Your name is {Person.name}");
+Console.WriteLine($"Your most liked dishes are here: {string.Join(", ", Person.dishes)}");

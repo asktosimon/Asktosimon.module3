@@ -1,21 +1,8 @@
-﻿const string DEFAULT_NAME = "No name";
-
-(string name, string[] dishes) Person = (DEFAULT_NAME, new string[5]);
-
-Console.WriteLine("What is your name?");
-
-var name = Console.ReadLine();
-
-Person.name = name ?? DEFAULT_NAME;
-
-Console.WriteLine("What are your most liked dishes? Could call 5 dishes?");
-
-foreach(var i in Enumerable.Range(0, 5))
+﻿int PowerUp(int N, byte pow)
 {
-    var dish = Console.ReadLine();
+    if (pow == 1) return N;
 
-    Person.dishes[i] = dish ?? "";
+    return N * PowerUp(N, (byte)(pow - 1));
 }
 
-Console.WriteLine($"Your name is {Person.name}");
-Console.WriteLine($"Your most liked dishes are here: {string.Join(", ", Person.dishes)}");
+Console.WriteLine(PowerUp(2, 3));
